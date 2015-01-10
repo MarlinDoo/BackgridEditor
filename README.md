@@ -4,6 +4,10 @@
 
 当然，Backbone-forms已经提供了editor.List的实现方式，正如Backbone-forms与Backgrid组件的区别，二者也是服务于不同的业务目标。
 
+## screenshot
+
+![Screenshot](http://www.marlindoo.com/assets/images/editor-backgrid-screenshot.png)
+
 ## Installation
 
 Dependencies:
@@ -37,7 +41,7 @@ First make sure you have Bower installed.
           ]}
         }
       });
-      
+
       var user = new User({
         name:'MarlinDoo',
         contacts:[
