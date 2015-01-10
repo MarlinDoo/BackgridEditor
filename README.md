@@ -2,7 +2,9 @@
 
 使用 Backbone-forms 时，会有嵌入一个可编辑表格的需求，如个人资料中的联系方式。BackgridEditor提供了一个可编辑表格的实现方式。
 
-当然，Backbone-forms已经提供了editor.List的实现方式，正如Backbone-forms与Backgrid组件的区别，二者也是服务于不同的业务目标。
+当然，Backbone-forms已经提供了editor.List，可以用于管理数据中的数组元素。并提供增、删、改功能。
+
+正如Backbone-forms与Backgrid组件的区别，editor.List与editor.Backgrid二者服务于不同的业务目标。editor.Backgrid重点是在表格上进行数据的编辑。
 
 ## screenshot
 
