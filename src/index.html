@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Sample of Backbone-forms">
+    <title>Form Sample</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../bower_components/backgrid/lib/backgrid.css" />
+    <style type="text/css">
+    #header{text-align: center;}
+    #main{width: 1000px;margin:20px auto; border: 1px solid #eee; border-radius: 4px; padding: 20px;}
+    .backgrid-field{height:auto;padding-bottom: 20px;}
+    </style>
+  </head>
+  <body>
+
+    <header id="header"><h1>Form Sample</h1></header>
+
+    <main id="main" class="main"> </main>
+
+    <footer id="footer"></footer>
+
+    <script src="../bower_components/jquery/jquery.js"></script>
+    <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="../bower_components/backbone/backbone.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/backbone-forms/distribution/backbone-forms.js"></script>
+    <script src="../bower_components/backgrid/lib/backgrid.js"></script>
+    <script src="../bower_components/backbone-forms/distribution/templates/bootstrap3.js"></script>
+    <script src="scripts/editor.backgrid.js"></script>
+
+    <script type="text/javascript">
+    $(function(){
+      var User = Backbone.Model.extend({
+        schema: {
+          name:     { type: 'Text', title:'Name' },
+          gender:   { type: 'Select', title:'Gender', options: ['Mr', 'Mrs', 'Ms'] },
+          contacts: { type: 'Backgrid', title:'Contacts', editorClass:'backgrid-field', columns:[
+            {
+              name: "account",
+              label: "Account",
+              cell: Backgrid.SelectCell.extend({
+                optionValues: [["WeChat", "wechat"], ["WhatsApp", "whatsapp"], ["Weibo", "weibo"], ["Tecent QQ", "qq"]]
+              })
+            }, {
+              name: "name",
+              label: "Name",
+              cell: "string"
+            }
+          ]}
+        }
+      });
+
+      var user = new User({
+        name:'MarlinDoo',
+        contacts:[
+          {name:'marlin_dong@hotmail.com', account:'wechat'},
+          {name:'marlin_dong@hotmail.com', account:'whatsapp'},
+          {name:'donghui@dogesoft.com', account:'weibo'},
+        ]
+      });
+
+      var form = new Backbone.Form({
+        model: user
+      }).render();
+
+      $('#main').append(form.el);
+    });
+    </script>
+
+  </body>
+</html>

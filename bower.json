@@ -1,0 +1,26 @@
+{
+  "name": "BackgridEditor",
+  "version": "0.0.1",
+  "authors": [
+    "garydong@outlook.com"
+  ],
+  "description": "An table cell editor",
+  "keywords": [
+    "Backbone-forms",
+    "Backgrid",
+    "editor"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone-forms": "~0.14.0",
+    "backgrid": "~0.3.5",
+    "bootstrap": "~3.3.1"
+  }
+}
