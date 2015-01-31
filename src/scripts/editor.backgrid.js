@@ -15,8 +15,7 @@
 
     initialize: function(options) {
 
-      var self = this,
-          editors = Form.editors;
+      var editors = Form.editors;
 
       editors.Base.prototype.initialize.call(this, options);
 
@@ -34,14 +33,18 @@
 
       this.grid = new Backgrid.Grid({
         columns: this.columns,
+        model: this.model,
         collection: this.collection
       });
 
-      this.collection.on('change', function( model ){
-        if(this.indexOf(model) == this.length - 1){
-          self._addNew();
-        }
-      })
+      this.modelsChange = options.modelsChange || this.modelsChange;
+      this.collection.on('change', this.modelsChange, this);
+    },
+    modelsChange: function( model ){
+      var collection = this.collection;
+      if(collection.indexOf(model) == collection.length - 1){
+        this._addNew();
+      }
     },
     _addNew: function(){
       this.collection.add( this.collection.model );
@@ -51,7 +54,7 @@
       return this;
     },
     getValue: function() {
-      return this.value;
+      return this.collection.toJSON();
     },
     setValue: function(value) {
       if(!_.isArray(value)) throw new Error("value must be an array");

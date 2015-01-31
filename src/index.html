@@ -47,6 +47,12 @@
               name: "name",
               label: "Name",
               cell: "string"
+            }, {
+              name: "nation",
+              label: "Nation",
+              cell: Backgrid.SelectCell.extend({
+                optionValues: [["China", "C"], ["USA", "usa"], ["U.K.", "uk"]]
+              })
             }
           ]}
         }
@@ -55,9 +61,9 @@
       var user = new User({
         name:'MarlinDoo',
         contacts:[
-          {name:'marlin_dong@hotmail.com', account:'wechat'},
-          {name:'marlin_dong@hotmail.com', account:'whatsapp'},
-          {name:'donghui@dogesoft.com', account:'weibo'},
+          {name:'marlin_dong@hotmail.com', account:'wechat',nation:'C'},
+          {name:'marlin_dong@hotmail.com', account:'whatsapp',nation:'usa'},
+          {name:'donghui@dogesoft.com', account:'weibo',nation:'uk'},
         ]
       });
 
